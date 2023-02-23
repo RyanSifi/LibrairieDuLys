@@ -1,0 +1,18 @@
+{% extends 'front.html.twig' %}
+
+{% block hero_unit %}
+  {% include 'front/partial/_heroUnit.html.twig' %}
+{% endblock %}
+
+{% block main %}
+
+<h1>Nos Nouveautés</h1>
+
+{% for realProperty in properties %}
+
+{% embed 'front/partial/_realPropertyCard.html.twig' %}
+{% endembed %}
+
+{% endfor %}
+
+{% endblock %}
