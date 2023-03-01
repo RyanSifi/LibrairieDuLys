@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use App\Repository\ClientRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class Client implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
@@ -19,7 +23,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         'homme' => 'homme',
         'femme' => 'femme',
     ];
-    
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -52,10 +56,10 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $sexe = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?\DateTimeInterface $createdat = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?\DateTimeInterface $updatedat = null;
 
     public function getId(): ?int
@@ -180,7 +184,11 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->sexe;
     }
-
+    public function __construct()
+    {
+        $this->createdat = new DateTimeImmutable();
+        $this->updatedat = new DateTimeImmutable();
+    }
     public function setSexe(string $sexe): self
     {
         $this->sexe = $sexe;
@@ -193,22 +201,8 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->createdat;
     }
 
-    public function setCreatedat(\DateTimeInterface $createdat): self
-    {
-        $this->createdat = $createdat;
-
-        return $this;
-    }
-
     public function getUpdatedat(): ?\DateTimeInterface
     {
         return $this->updatedat;
-    }
-
-    public function setUpdatedat(\DateTimeInterface $updatedat): self
-    {
-        $this->updatedat = $updatedat;
-
-        return $this;
     }
 }

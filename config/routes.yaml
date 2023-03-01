@@ -1,11 +1,15 @@
 controllers:
-    resource: ../src/Controller/
-    type: attribute
-    
+  resource: ../src/Controller/
+  type: attribute
+
 app_login:
-    path: /login
-    controller: App\Controller\SecurityController::login
+  path: /login
+  controller: App\Controller\SecurityController::login
 
 app_logout:
-    path: /logout
-    controller: App\Controller\SecurityController::logout
+  path: /logout
+  controller: App\Controller\SecurityController::logout
+
+app_homepage:
+  path: /
+  controller: App\Controller\HomeController::home

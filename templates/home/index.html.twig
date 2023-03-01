@@ -1,18 +1,121 @@
-{% extends 'front.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block hero_unit %}
-  {% include 'front/partial/_heroUnit.html.twig' %}
+{% block title %}Librairie du Lys{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        /* Définition des couleurs */
+        :root {
+            --primary-color: #1d3557; /* Bleu foncé */
+            --secondary-color: #6b705c; /* Vert olive */
+            --accent-color: #8d2d2c; /* Bordeaux */
+        }
+
+        /* Styles spécifiques à la page d'accueil */
+        .hero {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 100px;
+            text-align: center;
+        }
+
+        .latest-books {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 50px;
+        }
+
+        .latest-books h2 {
+            color: var(--accent-color);
+        }
+
+        .book-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .book-list li {
+            margin: 20px 0;
+        }
+
+        .book-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .book-author {
+            font-size: 16px;
+            font-style: italic;
+        }
+        .book-description {
+            font-size: 16px;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+        .book-cover {
+            width: 200px;
+            height: 300px;
+            margin-left: auto;
+        }
+
+        .title {
+            display: inline-block;
+            margin-right: 20px;
+            }
+
+        .logo {
+            display: inline-block;
+            float: right;
+            width: 200px;
+            height: 200px;
+            margin-top: -50px;
+        }
+
+        /* Styles spécifiques à la page de recherche */
+        .search-form {
+            margin: 50px auto;
+            max-width: 600px;
+        }
+
+        .search-results {
+            margin: 50px auto;
+            max-width: 800px;
+        }
+
+        .search-results .book-list li {
+            margin: 10px 0;
+        }
+
+        .search-results .book-title {
+            font-size: 20px;
+        }
+
+        .search-results .book-author {
+            font-size: 14px;
+        }
+    </style>
 {% endblock %}
 
-{% block main %}
-
-<h1>Nos Nouveautés</h1>
-
-{% for realProperty in properties %}
-
-{% embed 'front/partial/_realPropertyCard.html.twig' %}
-{% endembed %}
-
-{% endfor %}
-
+{% block body %}
+    <div class="hero">
+        <img src="{{ asset('images/save_logo.png') }}" alt="Logo Librairie du Lys" class="logo">
+        <h1 class="title">Bienvenue à la Librairie du Lys</h1>
+        <p>Découvrez notre sélection de livres</p>
+    </div>
+    {% if books is not empty %}
+        <div class="latest-books">
+            <h2>Nouveautés</h2>
+            <ul class="book-list">
+                {% for book in books %}
+                    <li>
+                        <h3 class="book-title">{{ book.title }}</h3>
+                        <p class="book-author">par {{ book.author }}</p>
+                        <img class="book-cover" src="{{ asset(book.cover) }}" alt="{{ book.title }} cover">
+                        <p class="book-description">{{ book.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 {% endblock %}

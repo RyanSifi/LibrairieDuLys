@@ -2,7 +2,6 @@
 
 namespace App\Security;
 
-use App\Entity\Client;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +15,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class AppFormLoginAuthenticator extends AbstractLoginFormAuthenticator
+class ClientAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
@@ -47,15 +46,9 @@ class AppFormLoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        /**
-         * @var Client
-         */
-        $client = $token->getUser();
-
-        // @TODO rediriger vers la page d'accueil
-        return new RedirectResponse($this->urlGenerator->generate('app_front_client_welcome', [
-            'id' => $client->getId(),
-        ]));
+        // For example:
+        return new RedirectResponse($this->urlGenerator->generate('main'));
+        //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl(Request $request): string

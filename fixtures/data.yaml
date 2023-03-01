@@ -2,7 +2,7 @@ App\Entity\Client:
   # Génération d'un client de test
   client_test:
     email: test@mail.com
-    password: \$2y\$13\$ijAtR1cudQlxPNIE5xpAsutWQ8nwTdt2uyP7Qi4.BDhsyLsgqY6NS
+    password: test
     roles: ["ROLE_CLIENT"]
     phone: "0235214284"
     firstname: "John"
@@ -15,7 +15,7 @@ App\Entity\Client:
   # Génération d'un client administreur
   client_admin:
     email: admin@mail.com
-    password: \$2y\$13\$79TQGtP4x9kKlnCAuGsJXOUuw4XTWlto6rjzFw6vE04jtI.HJZLwy
+    password: test
     roles: ["ROLE_ADMIN"]
     phone: "0635211484"
     firstname: "Jane"
@@ -28,7 +28,7 @@ App\Entity\Client:
   # Génération de client aléatoire
   client_{0..30}:
     email (unique): <email()>
-    password: \$2y\$13\$1qKKsXJWNWs6RI0ISnx9RuYCAHFnQKnYDkIDJa5MNLpE5YxdJ.DmK
+    password: test
     roles: ["ROLE_CLIENT"]
     phone: <fr_FR:phoneNumber()>
     firstname: <fr_FR:firstName()>
@@ -44,7 +44,7 @@ App\Entity\Book:
     author: "George Orwell"
     description: Roman dystopique publié en 1949 décrivant une société totalitaire et oppressante.
     ISBN: "9782070643074"
-    cover: "https://www.example.com/1984_cover.jpg"
+    cover: "images/1984_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Secker & Warburg"
     price: 14.99
@@ -55,7 +55,7 @@ App\Entity\Book:
     author: "Victor Hugo"
     description: "Roman historique publié en 1862 décrivant la vie des misérables en France durant les années 1815 à 1832."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/lesmiserables_cover.jpg"
+    cover: "images/les_miserables_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Librairie Internationale"
     price: 17.99
@@ -66,9 +66,9 @@ App\Entity\Book:
     author: "J.R.R Tolkien"
     description: "Premier livre de la Trilogie de romans de fantasy se déroulant dans un univers imaginaire nommé la Terre du Milieu."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/lesmiserables_cover.jpg"
+    cover: "images/le_sda_t1_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Test"
+    editor: "Folio Junior"
     price: 10.99
     genre: "Fantasy"
     stock: "13"
@@ -77,9 +77,9 @@ App\Entity\Book:
     author: "J.R.R Tolkien"
     description: "Second livre de la Trilogie de romans de fantasy se déroulant dans un univers imaginaire nommé la Terre du Milieu."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/lesmiserables_cover.jpg"
+    cover: "images/le_sda_t2_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Test"
+    editor: "Folio Junior"
     price: 10.99
     genre: "Fantasy"
     stock: "11"
@@ -88,9 +88,9 @@ App\Entity\Book:
     author: "J.R.R Tolkien"
     description: "Troisième et dernier livre de la Trilogie de romans de fantasy se déroulant dans un univers imaginaire nommé la Terre du Milieu."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/lesmiserables_cover.jpg"
+    cover: "images/le_sda_t3_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Test"
+    editor: "Folio Junior"
     price: 10.99
     genre: "Fantasy"
     stock: "8"
@@ -99,7 +99,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Roman de fantasy racontant l'histoire d'un jeune garçon nommé Harry Potter qui apprend qu'il est en fait un sorcier et qu'il a été accepté à l'école de sorcellerie de Poudlard."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/harry_potter_ecole_sorciers.jpg"
+    cover: "images/Hp_t1_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -110,7 +110,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Deuxième tome de la série Harry Potter, dans lequel Harry retourne à Poudlard et doit faire face à de nouveaux dangers."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/harry_potter_ecole_sorciers.jpg"
+    cover: "images/Hp_t2_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -121,7 +121,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Troisième tome de la série Harry Potter, dans lequel Harry découvre l'existence d'un dangereux prisonnier qui s'est échappé d'Azkaban."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/harry_potter_ecole_sorciers.jpg"
+    cover: "images/Hp_t3_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -132,7 +132,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Quatrième tome de la série Harry Potter, dans lequel Harry participe au tournoi des trois sorciers et doit faire face à de nouveaux ennemis."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/harry_potter_ecole_sorciers.jpg"
+    cover: "images/Hp_t4_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -143,7 +143,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Cinquième tome de la série Harry Potter, où Harry doit faire face à l'hostilité du Ministère de la Magie et à la montée en puissance de Voldemort."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/harry_potter_ecole_sorciers.jpg"
+    cover: "images/Hp_t5_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -154,7 +154,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Sixième tome de la série Harry Potter, où Harry doit découvrir les secrets du passé de Voldemort."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/harry_potter_ecole_sorciers.jpg"
+    cover: "images/Hp_t6_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -165,7 +165,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Septième et dernier tome de la série Harry Potter, où Harry et ses amis doivent affronter Voldemort pour la dernière fois."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/harry_potter_ecole_sorciers.jpg"
+    cover: "images/Hp_t7_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -176,18 +176,18 @@ App\Entity\Book:
     author: "Jean de La Fontaine"
     description: "Recueil de fables en vers de Jean de La Fontaine, publié en plusieurs volumes au 17ème siècle."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/les_fables_de_la_fontaine.jpg"
+    cover: "images/les_fables_de_la_fontaine_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Gallimard"
+    editor: "Gallimard Jeunesse"
     price: 15.50
-    genre: "Conte etFables"
+    genre: "Conte et Fables"
     stock: "12"
   books_14:
     title: "Fables d'Ésope"
     author: "Ésope"
     description: "Recueil de fables attribuées à Ésope, esclave grec ayant vécu au VIe siècle avant J.-C. Ces fables ont pour personnages des animaux anthropomorphes et mettent en lumière des comportements humains."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/fables_esope.jpg"
+    cover: "images/fable_esope_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Flammarion"
     price: 7.50
@@ -198,7 +198,7 @@ App\Entity\Book:
     author: "Hans Christian Andersen"
     description: "Recueil de contes et fables écrits par Hans Christian Andersen, publié pour la première fois en 1835. Les histoires mettent en scène des personnages féeriques et merveilleux."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/contes_fables_andersen.jpg"
+    cover: "images/andersen_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Le Livre de Poche"
     price: 6.80
@@ -209,7 +209,7 @@ App\Entity\Book:
     author: "Anonyme"
     description: "Recueil de contes animaliers mettant en scène le personnage de Renart, renard rusé et malin, et son entourage. Ces histoires ont été écrites à partir du XIIe siècle et ont connu de nombreuses variantes."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/roman_renart.jpg"
+    cover: "images/roman_de_renart_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Folio"
     price: 8.60
@@ -220,9 +220,9 @@ App\Entity\Book:
     author: "Pierre Corneille"
     description: "Pièce de théâtre en cinq actes de Pierre Corneille, créée en 1637. Elle raconte l'histoire de l'amour impossible entre Don Rodrigue et Chimène."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/le_cid.jpg"
+    cover: "images/le_cid_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Garnier"
+    editor: "Flammarion"
     price: 9.20
     genre: "Théâtre"
     stock: "15"
@@ -231,7 +231,7 @@ App\Entity\Book:
     author: "Jean Racine"
     description: "Pièce de théâtre en cinq actes de Jean Racine, créée en 1669. Elle relate les intrigues de l'empereur Néron et de sa mère Agrippine."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/britannicus.jpg"
+    cover: "images/britannicus_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Hachette"
     price: 8.50
@@ -242,7 +242,7 @@ App\Entity\Book:
     author: "Edmond Rostand"
     description: "Pièce de théâtre en cinq actes d'Edmond Rostand, créée en 1897. Elle met en scène le poète et bretteur Cyrano de Bergerac, amoureux de Roxane."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/cyrano_de_bergerac.jpg"
+    cover: "images/cyrano_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Larousse"
     price: 11.30
@@ -253,9 +253,9 @@ App\Entity\Book:
     author: "Pierre-Augustin Caron de Beaumarchais"
     description: "Pièce de théâtre en cinq actes de Beaumarchais, créée en 1784. Elle met en scène les amours compliquées du valet Figaro et de Suzanne, femme de chambre de la comtesse Almaviva."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/le_mariage_de_figaro.jpg"
+    cover: "images/figaro_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Gallimard"
+    editor: "Folio"
     price: 9.80
     genre: "Théâtre"
     stock: "18"
@@ -264,7 +264,7 @@ App\Entity\Book:
     author: "Maurice Leblanc"
     description: "Arsène Lupin, gentleman cambrioleur est un recueil de nouvelles policières mettant en scène le célèbre voleur Arsène Lupin, qui se joue des forces de l'ordre."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/arsene_lupin.jpg"
+    cover: "images/lupin_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Le Livre de Poche"
     price: 7.20
@@ -275,9 +275,9 @@ App\Entity\Book:
     author: "Miguel de Cervantes"
     description: "Don Quichotte est un roman qui raconte l'histoire d'un noble espagnol obsédé par les romans de chevalerie qui décide de devenir chevalier errant lui-même, accompagné de son fidèle écuyer Sancho Panza."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/don_quichotte.jpg"
+    cover: "images/donquichotte_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Folio Classique"
+    editor: "Glénat"
     price: 9.90
     genre: "Roman"
     stock: "12"
@@ -286,9 +286,9 @@ App\Entity\Book:
     author: "Alexandre Dumas"
     description: "Le Comte de Monte-Cristo est un roman d'aventures qui raconte l'histoire d'Edmond Dantès, un homme injustement emprisonné qui s'évade de prison et se lance dans une quête de vengeance contre ceux qui l'ont trahi."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/comte_monte_cristo.jpg"
+    cover: "images/monte_cristo_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Le Livre de Poche"
+    editor: "Folio Junior"
     price: 11.90
     genre: "Roman"
     stock: "9"
@@ -297,9 +297,9 @@ App\Entity\Book:
     author: "Arthur Conan Doyle"
     description: "Les Aventures de Sherlock Holmes est un recueil de nouvelles policières mettant en scène le célèbre détective Sherlock Holmes, qui résout des enquêtes complexes grâce à sa logique implacable."
     ISBN: "9782070643074"
-    cover: "https://www.example.com/sherlock_holmes.jpg"
+    cover: "images/sherlock_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Le Livre de Poche"
+    editor: "Omnibus"
     price: 7.90
     genre: "Roman"
     stock: "18"
@@ -308,10 +308,10 @@ App\Entity\Book:
     author: "Charles Baudelaire"
     description: "Les Fleurs du Mal est un recueil de poèmes écrit par Charles Baudelaire, publié pour la première fois en 1857. Les poèmes abordent des thèmes tels que la mort, l'amour, la beauté, la décadence et la mélancolie."
     ISBN: "9782070308423"
-    cover: "https://www.example.com/fleurs_du_mal.jpg"
+    cover: "images/fleur_du_mal_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Gallimard"
-    price: 10.50
+    price: 3.20
     genre: "Poésie"
     stock: "12"
   books_26:
@@ -319,10 +319,10 @@ App\Entity\Book:
     author: "Charles Baudelaire"
     description: "Petits Poèmes en prose est un recueil de poèmes en prose écrit par Charles Baudelaire et publié pour la première fois en 1869. Les poèmes traitent de sujets variés tels que l'amour, la beauté, l'art et la mort."
     ISBN: "9782253161741"
-    cover: "https://www.example.com/petits_poemes_en_prose.jpg"
+    cover: "images/petit_poeme_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Le Livre de Poche"
-    price: 6.90
+    editor: "Larousse"
+    price: 3.95
     genre: "Poésie"
     stock: "8"
   books_27:
@@ -330,10 +330,10 @@ App\Entity\Book:
     author: "Arthur Rimbaud"
     description: "Les Illuminations est un recueil de poèmes en prose écrit par Arthur Rimbaud et publié pour la première fois en 1886. Les poèmes sont considérés comme une œuvre majeure du symbolisme."
     ISBN: "9782070387206"
-    cover: "https://www.example.com/les_illuminations.jpg"
+    cover: "images/illumination_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Gallimard"
-    price: 9.50
+    editor: "Pocket"
+    price: 1.80
     genre: "Poésie"
     stock: "5"
   books_28:
@@ -341,20 +341,20 @@ App\Entity\Book:
     author: "Victor Hugo"
     description: "Les Contemplations est un recueil de poèmes écrit par Victor Hugo, publié pour la première fois en 1856. Les poèmes traitent de sujets tels que l'amour, la nature, la mort et la religion."
     ISBN: "9782253082672"
-    cover: "https://www.example.com/les_contemplations.jpg"
+    cover: "images/contemplation_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Le Livre de Poche"
     price: 8.90
     genre: "Poésie"
-    stock: "10"
+    stock: "0"
   books_29:
     title: "Leaves of Grass"
     author: "Walt Whitman"
     description: "Leaves of Grass est un recueil de poèmes écrit par Walt Whitman, publié pour la première fois en 1855. Les poèmes sont écrits dans un style libre et célèbrent la nature, l'individualité et la démocratie."
     ISBN: "9780140421996"
-    cover: "https://www.example.com/leaves_of_grass.jpg"
+    cover: "images/leaves_of_grass_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Penguin Classics"
+    editor: "Castenea Classics"
     price: 12.50
     genre: "Poésie"
     stock: "7"
@@ -363,9 +363,9 @@ App\Entity\Book:
     author: "Camara Laye"
     description: "L'autobiographie de Camara Laye, qui raconte son enfance en Guinée sous le régime colonial français."
     ISBN: "9782070367723"
-    cover: "https://www.example.com/l_enfant_noir.jpg"
+    cover: "images/enfant_cover.jpg"
     publication: <(new \DateTime())>
-    editor: "Gallimard"
+    editor: "Hatier"
     price: 7.90
     genre: "Autobiographie"
     stock: "12"
@@ -374,31 +374,46 @@ App\Entity\Book:
     author: "Maya Angelou"
     description: "L'autobiographie de Maya Angelou, qui raconte son enfance difficile et sa lutte pour surmonter les obstacles de la discrimination raciale et de la violence sexuelle."
     ISBN: "9782226446617"
-    cover: "https://www.example.com/je_sais_pourquoi_chante_l_oiseau_en_cage.jpg"
-    publication: <(new \DateTime())>
-    editor: "Albin Michel"
-    price: 9.90
-    genre: "Autobiographie"
-    stock: "8"
-  books_32:
-    title: "L'Énigme du retour"
-    author: "Dany Laferrière"
-    description: "L'autobiographie de Dany Laferrière, qui raconte son retour en Haïti après des années passées au Canada et sa quête pour retrouver son identité et ses racines."
-    ISBN: "9782253114497"
-    cover: "https://www.example.com/l_enigme_du_retour.jpg"
+    cover: "images/oiseau_en_cage_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Le Livre de Poche"
-    price: 8.50
+    price: 9.90
     genre: "Autobiographie"
-    stock: "14"
-  books_33:
-    title: "Le Devoir de mémoire"
-    author: "Elie Wiesel"
-    description: "L'autobiographie d'Elie Wiesel, qui raconte son expérience de la Shoah et son engagement pour la mémoire des victimes de l'Holocauste."
+    stock: "0"
+  books_32:
+    title: "Un long chemin vers la liberté"
+    author: "Nelson Mandela"
+    description: "L'autobiographie de Nelson Mandela commencé en 1974 en prison et terminé en 1990 aprés sa libération il raconte sa vie de lutte pour la liberté."
     ISBN: "9782070733981"
-    cover: "https://www.example.com/le_devoir_de_memoire.jpg"
+    cover: "images/long_chemin_cover.jpg"
     publication: <(new \DateTime())>
     editor: "Folio"
     price: 6.90
     genre: "Autobiographie"
     stock: "11"
+App\Entity\Commande:
+  commande_1:
+    date: <(new \DateTime())>
+    status: "commandé"
+    book_id: 12
+    client_id: 1
+  commande_2:
+    date: <(new \DateTime())>
+    status: "terminé"
+    book_id: 13
+    client_id: 2
+  commande_3:
+    date: <(new \DateTime())>
+    status: "indisponible"
+    book_id: 28
+    client_id: 3
+  commande_4:
+    date: <(new \DateTime())>
+    status: "terminé"
+    book_id: 4
+    client_id: 4
+  commande_5:
+    date: <(new \DateTime())>
+    status: "commandé"
+    book_id: 5
+    client_id: 5
