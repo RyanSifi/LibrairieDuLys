@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use App\Repository\CommandeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -30,17 +31,14 @@ class Commande
     {
         return $this->id;
     }
+    public function __construct()
+    {
+        $this->date = new DateTimeImmutable();
+    }
 
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 
     public function getBookId(): ?int

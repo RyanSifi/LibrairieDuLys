@@ -21,13 +21,13 @@
                         <p class="book-author">par {{ book.author }}</p>
                         <img class="book-cover" src="{{ asset(book.cover) }}" alt="{{ book.title }} cover">
                         <p class="book-description">{{ book.description }}</p>
+                        <form method="post" action="{{ path('commande_create') }}">
+                        <input type="hidden" name="book_id" value="{{ book.id }}">
+                        <button type="submit">Commander</button>
+                    </form>
                     </li>
                 {% endfor %}
             </ul>
         </div>
     {% endif %}
-    <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a test of Bootstrap integration with Symfony.</p>
-    </div>
 {% endblock %}
