@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Security\Core\Security;
 
 class RegistrationController extends AbstractController
 {
@@ -45,6 +45,15 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+        ]);
+    }
+    #[Route(path: '/profil', name: 'app_profile')]
+    #[Security('is_granted("ROLE_USER")')]
+    public function profile(): Response
+    {
+        $user = $this->getUser();
+        return $this->render('profil/profil.html.twig', [
+            'user' => $user,
         ]);
     }
 }
