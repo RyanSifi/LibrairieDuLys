@@ -19,11 +19,11 @@
                     <li>
                         <h3 class="book-title">{{ book.title }}</h3>
                         <p class="book-author">par {{ book.author }}</p>
-                        <img class="book-cover" src="{{ asset(book.cover) }}" alt="{{ book.title }} cover">
+                        <img class="book-cover img-fluid float-right img-thumbnail" src="{{ asset(book.cover) }}" alt="{{ book.title }} cover">
                         <p class="book-description">{{ book.description }}</p>
                         <form method="post" action="{{ path('commande_create') }}">
                         <input type="hidden" name="book_id" value="{{ book.id }}">
-                        <button type="submit">Commander</button>
+                        <button type="submit" class="btn btn-outline-dark btn-lg">Commander</button>
                     </form>
                     </li>
                 {% endfor %}

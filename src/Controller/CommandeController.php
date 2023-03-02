@@ -15,7 +15,7 @@ class CommandeController extends AbstractController
     #[Route('/commande/create', name: 'commande_create', methods: ['POST'])]
     public function commandeCreate(Request $request, EntityManagerInterface $entityManager, Security $security): Response
     {
-        // Vérifier si l'utilisateur est connecté
+        // Vérifie si l'utilisateur est connecté
         if (!$security->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('app_login');
         }
