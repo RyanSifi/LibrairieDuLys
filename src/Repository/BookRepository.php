@@ -5,7 +5,6 @@ namespace App\Repository;
 use App\Entity\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use App\DTO\BookSearchCriteria;
 
 /**
  * @extends ServiceEntityRepository<Book>

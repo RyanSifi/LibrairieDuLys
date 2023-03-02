@@ -20,9 +20,4 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class FrontClientController extends AbstractController
 {
-    #[Route('/', name: 'main')]
-    public function index(): Response
-    {
-        return $this->render('home/index.html.twig');
-    }
 }

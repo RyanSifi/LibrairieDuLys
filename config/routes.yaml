@@ -13,3 +13,7 @@ app_logout:
 app_homepage:
   path: /
   controller: App\Controller\HomeController::home
+
+target_path:
+  path: /target-path
+  controller: App\Controller\HomeController::home
