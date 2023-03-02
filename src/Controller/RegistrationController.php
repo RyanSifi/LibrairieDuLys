@@ -46,13 +46,38 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
     #[Route(path: '/profil', name: 'app_profile')]
     #[Security('is_granted("ROLE_USER")')]
-    public function profile(): Response
+    public function profile(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
+        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_profile');
+        }
+
         return $this->render('profil/profil.html.twig', [
             'user' => $user,
+            'registrationForm' => $form->createView(),
         ]);
+    }
+
+    #[Route('/update-user-info', name: 'update_user_info')]
+    public function updateUser(Request $request, EntityManagerInterface $entityManager)
+    {
+        $user = $this->getUser();
+
+        $email = $request->request->get('email');
+        $user->setEmail($email);
+
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_profile');
     }
 }
