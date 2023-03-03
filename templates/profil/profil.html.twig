@@ -54,10 +54,12 @@
         <ul>
             {% for commande in commandes %}
                 <div>
-                    {{ commande.date|date('d/m/Y H:i') }} - {{ commande.bookid }} - {{ commande.status }}
+                    <p class="font-weight-bold">Votre Commande du {{ commande.date|date('d/m/Y H:i') }} est actuellement en état {{ commande.status }}</p>
                     <form action="{{ path('delete_commande', {'id': commande.id}) }}" method="POST">
                         <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
+                    <br>
+                    <br>
                 </div>
             {% endfor %}
         </ul>
