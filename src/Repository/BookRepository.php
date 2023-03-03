@@ -48,7 +48,7 @@ class BookRepository extends ServiceEntityRepository
     public function findByTitleOrAuthor($query)
     {
         return $this->createQueryBuilder('b')
-            ->where('b.title LIKE :query OR b.author LIKE :query')
+            ->where('b.title LIKE :query OR b.author LIKE :query OR b.genre LIKE :query OR b.editor LIKE :query OR b.description LIKE :query')
             ->setParameter('query', '%' . $query . '%')
             ->getQuery()
             ->getResult();
