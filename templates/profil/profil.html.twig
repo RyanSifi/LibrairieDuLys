@@ -40,4 +40,14 @@
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
+    <h2>Mes Commandes</h2>
+    {% if commandes is empty %}
+        <p>Aucune commande pour l'instant.</p>
+    {% else %}
+        <ul>
+            {% for commande in commandes %}
+                <li>Commande du {{ commande.date|date('d/m/Y') }} pour le livre "{{ commande.bookid }}" ({{ commande.status }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}

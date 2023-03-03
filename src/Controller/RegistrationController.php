@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Security\Core\Security;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\CommandeRepository;
 
 class RegistrationController extends AbstractController
 {
@@ -49,14 +50,16 @@ class RegistrationController extends AbstractController
 
     #[Route(path: '/profil', name: 'app_profile')]
     #[Security('is_granted("ROLE_USER")')]
-    public function profile(): Response
+    public function profile(Security $security, CommandeRepository $commandeRepository): Response
     {
+        $users = $security->getUser();
+        $commandes = $commandeRepository->findBy(['client_id' => $users->getId()]);
         $user = $this->getUser();
         return $this->render('profil/profil.html.twig', [
             'user' => $user,
+            'commandes' => $commandes,
         ]);
     }
-
     #[Route('/update-user-info', name: 'update_user_info')]
     public function updateUser(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher)
     {
