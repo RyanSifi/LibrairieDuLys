@@ -17,3 +17,7 @@ app_homepage:
 target_path:
   path: /target-path
   controller: App\Controller\HomeController::home
+
+admin_page:
+  path: /admin
+  controller: App\Controller\AdminController::index
