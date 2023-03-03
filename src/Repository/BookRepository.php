@@ -45,4 +45,12 @@ class BookRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findByTitleOrAuthor($query)
+    {
+        return $this->createQueryBuilder('b')
+            ->where('b.title LIKE :query OR b.author LIKE :query')
+            ->setParameter('query', '%' . $query . '%')
+            ->getQuery()
+            ->getResult();
+    }
 }

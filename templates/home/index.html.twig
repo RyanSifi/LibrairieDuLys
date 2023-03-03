@@ -11,23 +11,34 @@
 
 {% block body %}
     {{ parent() }}
+    
+    <form action="{{ path('app_home') }}" method="get" class="search-form">
+    <input type="text" name="query" placeholder="Rechercher...">
+    <button type="submit" class="btn btn-primary">Chercher</button>
+    </form>
+
     {% if books is not empty %}
-        <div class="latest-books">
-            <h2>Nouveautés</h2>
-            <ul class="book-list">
-                {% for book in books %}
-                    <li>
-                        <h3 class="book-title">{{ book.title }}</h3>
-                        <p class="book-author">par {{ book.author }}</p>
-                        <img class="book-cover img-fluid float-right img-thumbnail" src="{{ asset(book.cover) }}" alt="{{ book.title }} cover">
-                        <p class="book-description">{{ book.description }}</p>
-                        <form method="post" action="{{ path('commande_create') }}">
+    <div class="latest-books">
+        <h2>Nouveautés</h2>
+        <ul class="book-list">
+            {% for book in books %}
+                <li>
+                    <h3 class="book-title">{{ book.title }}</h3>
+                    <p class="book-author">par {{ book.author }}</p>
+                    <img class="book-cover img-fluid float-right img-thumbnail" src="{{ asset(book.cover) }}" alt="{{ book.title }} cover">
+                    <p class="book-description">{{ book.description }}</p>
+                    <form method="post" action="{{ path('commande_create') }}">
                         <input type="hidden" name="book_id" value="{{ book.id }}">
                         <button type="submit" class="btn btn-outline-dark btn-lg">Commander</button>
                     </form>
-                    </li>
-                {% endfor %}
-            </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+        <div class="no-results">
+            <p>Désolé, aucun résultat trouvé pour votre recherche "{{ query }}". Essayez avec un autre terme de recherche.</p>
+            <p>Vous pouvez donner le Titre du livre que vous Rechercher ou bien sont auteur</p>
         </div>
     {% endif %}
 {% endblock %}

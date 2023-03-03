@@ -23,14 +23,20 @@ class HomeController extends AbstractController
     /**
      * Affiche la page d'accueil
      */
-    #[Route('/home', name: 'app_home')]
+    #[Route('/', name: 'app_home')]
     public function home(Request $request, BookRepository $repository): Response
     {
-        // récupération des 10 derniers livre
-        $latestBooks = $repository->findLatestBooks(10);
-        // On affiche la page d'accueil
+        $query = $request->query->get('query');
+
+        if ($query) {
+            $books = $repository->findByTitleOrAuthor($query);
+        } else {
+            $books = $repository->findLatestBooks(10);
+        }
+
         return $this->render('home/index.html.twig', [
-            'books' => $latestBooks,
+            'books' => $books,
+            'query' => $query,
         ]);
     }
 }
