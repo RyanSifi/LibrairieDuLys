@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Client;
+use App\Entity\Commande;
 use App\Form\RegistrationFormType;
 use App\Security\ClientAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -85,6 +86,14 @@ class RegistrationController extends AbstractController
         $user->setUpdatedAt(new \DateTimeImmutable());
 
         $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_profile');
+    }
+    #[Route('/delete-commande/{id}', name: 'delete_commande')]
+    public function deleteCommande(EntityManagerInterface $entityManager, Commande $commande): Response
+    {
+        $entityManager->remove($commande);
         $entityManager->flush();
 
         return $this->redirectToRoute('app_profile');

@@ -53,7 +53,12 @@
     {% else %}
         <ul>
             {% for commande in commandes %}
-                <li>Commande du {{ commande.date|date('d/m/Y') }} pour le livre "{{ commande.bookid }}" ({{ commande.status }})</li>
+                <div>
+                    {{ commande.date|date('d/m/Y H:i') }} - {{ commande.bookid }} - {{ commande.status }}
+                    <form action="{{ path('delete_commande', {'id': commande.id}) }}" method="POST">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </div>
             {% endfor %}
         </ul>
     {% endif %}
