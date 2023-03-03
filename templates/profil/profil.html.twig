@@ -5,18 +5,39 @@
 {% block body %}
     {{ parent() }}
     <h1>Mon profil</h1>
-    <p>Prenom : {{ user.firstname }}</p>
-    <p>Nom : {{ user.lastname }}</p>
-    <p>Email : {{ user.email }}</p>
-    <p>Téléphone : {{ user.phone }}</p>
-    <p>Adresse : {{ user.adresse }}</p>
-    <p>Sexe : {{ user.sexe }}</p>
-    
     <form method="post" action="{{ path('update_user_info') }}">
-    <div class="form-group">
-        <label for="email">Adresse email :</label>
-        <input type="email" name="email" id="email" class="form-control" value="{{ app.user.email }}">
-    </div>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
-</form>
+        <div class="form-group">
+            <label for="firstname">Prénom :</label>
+            <input type="text" name="firstname" id="firstname" class="form-control" value="{{ user.firstname }}">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Nom :</label>
+            <input type="text" name="lastname" id="lastname" class="form-control" value="{{ user.lastname }}">
+        </div>
+        <div class="form-group">
+            <label for="email">Adresse email :</label>
+            <input type="email" name="email" id="email" class="form-control" value="{{ user.email }}">
+        </div>
+        <div class="form-group">
+            <label for="phone">Téléphone :</label>
+            <input type="tel" name="phone" id="phone" class="form-control" value="{{ user.phone }}">
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" name="adresse" id="adresse" class="form-control" value="{{ user.adresse }}">
+        </div>
+        <div class="form-group">
+            <label for="sexe">Sexe :</label>
+            <select name="sexe" id="sexe" class="form-control">
+                <option value="Homme" {% if user.sexe == 'Homme' %}selected{% endif %}>Homme</option>
+                <option value="Femme" {% if user.sexe == 'Femme' %}selected{% endif %}>Femme</option>
+                <option value="Autre" {% if user.sexe == 'Autre' %}selected{% endif %}>Autre</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="password">Mot De Pass :</label>
+            <input type="text" name="password" id="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
 {% endblock %}

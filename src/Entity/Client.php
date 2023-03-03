@@ -189,6 +189,13 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         $this->createdat = new DateTimeImmutable();
         $this->updatedat = new DateTimeImmutable();
     }
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedat(): void
+    {
+        $this->updatedat = new DateTimeImmutable();
+    }
     public function setSexe(string $sexe): self
     {
         $this->sexe = $sexe;
