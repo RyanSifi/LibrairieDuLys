@@ -15,6 +15,13 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Security\Core\Security;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\CommandeRepository;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use App\Repository\ClientRepository;
+use App\Form\ForgotPasswordType;
+use App\Form\ResetPasswordType;
+use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
+
 
 class RegistrationController extends AbstractController
 {
@@ -97,5 +104,115 @@ class RegistrationController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('app_profile');
+    }
+    #[Route('/forgot-password', name: 'app_forgot_password')]
+    public function forgotPassword(Request $request, PHPMailer $mailer, EntityManagerInterface $entityManager, ClientRepository $ClientRepository): Response
+    {
+        $form = $this->createForm(ForgotPasswordType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $email = $form->get('email')->getData();
+            $user = $ClientRepository->findOneBy(['email' => $email]);
+
+            if ($user) {
+                $token = bin2hex(random_bytes(32));
+                $user->setResetToken($token);
+                $user->setResetTokenExpiresAt((new \DateTimeImmutable())->modify('+1 hour'));
+
+                $entityManager->persist($user);
+                $entityManager->flush();
+
+                // configure PHPMailer
+                $mailer->isSMTP();
+                $mailer->SMTPAuth = true;
+                $mailer->SMTPSecure = 'ssl';
+                $mailer->Host = 'smtp.ionos.fr';
+                $mailer->Port = 465;
+                $mailer->Username = 'ryansifi@librairiedulys.fr';
+                $mailer->Password = 'Vk!Gd52!V@Z!g5U';
+
+                $mailer->setFrom('ryansifi@librairiedulys.fr');
+                $mailer->addAddress($user->getEmail());
+                $mailer->Subject = 'Reset your password';
+                $mailer->Body = $this->renderView(
+                    'registration/reset_password_email.html.twig',
+                    [
+                        'user' => $user,
+                        'token' => $token,
+                    ]
+                );
+
+                if (!$mailer->send()) {
+                    $this->addFlash('danger', 'An error occurred while sending the email.');
+                    return $this->redirectToRoute('app_forgot_password');
+                }
+
+                $this->addFlash('success', 'An email has been sent to your email address. Please check your inbox.');
+
+                return $this->redirectToRoute('app_login');
+            }
+
+            $this->addFlash('danger', 'This email is not registered.');
+
+            return $this->redirectToRoute('app_forgot_password');
+        }
+
+        return $this->render('registration/forgot_password.html.twig', [
+            'forgotPasswordForm' => $form->createView(),
+        ]);
+    }
+
+    #[Route("/reset-password/{token}", name: "app_reset_password")]
+    public function resetPassword(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher, string $token = null): Response
+    {
+        if (!$token) {
+            $this->addFlash('danger', 'Invalid reset password link.');
+            return $this->redirectToRoute('app_login');
+        }
+
+        $user = $entityManager->getRepository(Client::class)->findOneBy(['resetToken' => $token]);
+
+        if (!$user) {
+            $this->addFlash('danger', 'Invalid reset password link.');
+            return $this->redirectToRoute('app_login');
+        }
+
+        if ($user->getResetTokenExpiresAt() < new \DateTimeImmutable()) {
+            $this->addFlash('danger', 'Your reset password link has expired. Please try again.');
+            return $this->redirectToRoute('app_forgot_password');
+        }
+
+        // Ajouter ces lignes de code pour créer un tableau vide avec les clés 'plainPassword' et 'confirmPassword'
+        // et créer le formulaire avec ces données et définir les données de l'utilisateur dans le formulaire
+        $userData = ['plainPassword' => null, 'confirmPassword' => null];
+        $form = $this->createForm(ResetPasswordType::class, $userData);
+        $form->setData($user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setResetToken(null);
+            $user->setResetTokenExpiresAt(null);
+
+            $password = $passwordHasher->hashPassword($user, $form->get('plainPassword')->getData());
+            $user->setPassword($password);
+
+            $user->setResetToken(null);
+            $user->setResetTokenExpiresAt(null);
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Your password has been reset successfully. You can now log in with your new password.');
+
+            return $this->redirectToRoute('app_login');
+        }
+
+        return $this->render('registration/reset-password.html.twig', [
+            'resetPasswordForm' => $form->createView(),
+            'token' => $token,
+        ]);
     }
 }

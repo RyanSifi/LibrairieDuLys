@@ -1,42 +1,3 @@
-App\Entity\Client:
-  # Génération d'un client de test
-  client_test:
-    email: test@mail.com
-    password: test
-    roles: ["ROLE_CLIENT"]
-    phone: "0235214284"
-    firstname: "John"
-    lastname: "Doe"
-    sexe: "homme"
-    createdAt: <(new \DateTime())>
-    updatedAt: <(new \DateTime())>
-    adresse: "address_client_test"
-
-  # Génération d'un client administreur
-  client_admin:
-    email: admin@mail.com
-    password: test
-    roles: ["ROLE_ADMIN"]
-    phone: "0635211484"
-    firstname: "Jane"
-    lastname: "Doe"
-    sexe: <(\App\Entity\Client::SEXES['femme'])>
-    createdAt: <(new \DateTime())>
-    updatedAt: <(new \DateTime())>
-    adresse: "address_admin"
-
-  # Génération de client aléatoire
-  client_{0..30}:
-    email (unique): <email()>
-    password: test
-    roles: ["ROLE_CLIENT"]
-    phone: <fr_FR:phoneNumber()>
-    firstname: <fr_FR:firstName()>
-    lastname: <fr_FR:lastName()>
-    sexe: <(\App\Entity\Client::SEXES['femme'])>
-    createdAt: <(new \DateTime())>
-    updatedAt: <(new \DateTime())>
-    adresse: "address_client_<current()>"
 App\Entity\Book:
   # Génération de livres test
   books_1:
@@ -391,29 +352,3 @@ App\Entity\Book:
     price: 6.90
     genre: "Autobiographie"
     stock: "11"
-App\Entity\Commande:
-  commande_1:
-    date: <(new \DateTime())>
-    status: "commandé"
-    book_id: 12
-    client_id: 1
-  commande_2:
-    date: <(new \DateTime())>
-    status: "terminé"
-    book_id: 13
-    client_id: 2
-  commande_3:
-    date: <(new \DateTime())>
-    status: "indisponible"
-    book_id: 28
-    client_id: 3
-  commande_4:
-    date: <(new \DateTime())>
-    status: "terminé"
-    book_id: 4
-    client_id: 4
-  commande_5:
-    date: <(new \DateTime())>
-    status: "commandé"
-    book_id: 5
-    client_id: 5
