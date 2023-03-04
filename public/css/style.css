@@ -56,18 +56,9 @@
     display: inline-block;
     margin-right: 20px;
 }
-
-.logo {
-    display: inline-block;
-    float: right;
-    width: 200px;
-    height: 200px;
-    margin-top: -50px;
+.log {
+    margin-left: 10em;
 }
-.link:hover {
-    text-decoration: underline;
-  }
-
 /* Styles spécifiques à la page de recherche */
 .search-form {
     margin: 50px auto;
