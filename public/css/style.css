@@ -5,7 +5,9 @@
     --accent-color: #8d2d2c; /* Bordeaux */
 }
 
-/* Styles spécifiques à la page d'accueil */
+.body {
+    min-height: 1500px;
+}
 .hero {
     background-color: var(--primary-color);
     color: #fff;
@@ -55,9 +57,6 @@
 .title {
     display: inline-block;
     margin-right: 20px;
-}
-.log {
-    margin-left: 10em;
 }
 /* Styles spécifiques à la page de recherche */
 .search-form {

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+     <div class="latest-books">
+        <h1>{{ genre }}</h1>
+        <ul class="book-list">
+            {% for book in books %}
+                <h3 class="book-title">{{ book.title }}</h3>
+                <p class="book-author">par {{ book.author }}</p>
+                <img class="book-cover img-fluid float-right img-thumbnail" src="{{ asset(book.cover) }}" alt="{{ book.title }} cover">
+                <p class="book-description">{{ book.description }}</p>
+                <form method="post" action="{{ path('commande_create') }}">
+                    <input type="hidden" name="book_id" value="{{ book.id }}">
+                    <button type="submit" class="btn btn-outline-dark btn-lg">Commander</button>
+                </form>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

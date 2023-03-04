@@ -29,3 +29,27 @@ app_mentions_legales:
 app_politiques_confidentialite:
   path: /politiques-confidentialite
   controller: App\Controller\PolitiquesConfidentialiteController::index
+
+app_genre_romans:
+  path: /genres/romans
+  controller: App\Controller\HomeController::genreRomans
+
+app_genre_fantasy:
+  path: /genres/fantasy
+  controller: App\Controller\HomeController::genreFantasy
+
+app_genre_contes:
+  path: /genres/contes
+  controller: App\Controller\HomeController::genreContes
+
+app_genre_theatre:
+  path: /genres/theatre
+  controller: App\Controller\HomeController::genreTheatre
+
+app_genre_poesie:
+  path: /genres/poesie
+  controller: App\Controller\HomeController::genrePoesie
+
+app_genre_autobiographie:
+  path: /genres/autobiographie
+  controller: App\Controller\HomeController::genreAutobiographie
