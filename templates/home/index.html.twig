@@ -12,7 +12,7 @@
 {% block body %}
     {{ parent() }}
     
-    <form action="{{ path('app_home') }}" method="get" class="search-form">
+    <form action="{{ path('app_home') }}" method="get" class="search-form form-control-lg">
     <input type="text" name="query" placeholder="Rechercher...">
     <button type="submit" class="btn btn-primary">Chercher</button>
     </form>

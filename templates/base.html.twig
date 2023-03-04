@@ -10,97 +10,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap-icons.css') }}">
-            <style>
-        /* Définition des couleurs */
-        :root {
-            --primary-color: #1d3557; /* Bleu foncé */
-            --secondary-color: #6b705c; /* Vert olive */
-            --accent-color: #8d2d2c; /* Bordeaux */
-        }
-
-        /* Styles spécifiques à la page d'accueil */
-        .hero {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 100px;
-            text-align: center;
-        }
-
-        .latest-books {
-            background-color: var(--secondary-color);
-            color: #fff;
-            padding: 50px;
-        }
-
-        .latest-books h2 {
-            color: var(--accent-color);
-        }
-
-        .book-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .book-list li {
-            margin: 20px 0;
-        }
-
-        .book-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .book-author {
-            font-size: 16px;
-            font-style: italic;
-        }
-        .book-description {
-            font-size: 16px;
-            line-height: 1.4;
-            margin-top: 10px;
-        }
-        .book-cover {
-            width: 200px;
-            height: 300px;
-            margin-left: auto;
-        }
-
-        .title {
-            display: inline-block;
-            margin-right: 20px;
-            }
-
-        .logo {
-            display: inline-block;
-            float: right;
-            width: 200px;
-            height: 200px;
-            margin-top: -50px;
-        }
-
-        /* Styles spécifiques à la page de recherche */
-        .search-form {
-            margin: 50px auto;
-            max-width: 600px;
-        }
-
-        .search-results {
-            margin: 50px auto;
-            max-width: 800px;
-        }
-
-        .search-results .book-list li {
-            margin: 10px 0;
-        }
-
-        .search-results .book-title {
-            font-size: 20px;
-        }
-
-        .search-results .book-author {
-            font-size: 14px;
-        }
-    </style>
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -135,10 +45,40 @@
         {% endblock %}
         {% block body %}
             <div class="hero">
-                <img src="{{ asset('images/save_logo.png') }}" alt="Logo Librairie du Lys" class="logo">
+                <img src="{{ asset('images/save_logo.png') }}" alt="Logo de la Librairie du Lys" class="logo">
                 <h1 class="title">Bienvenue à la Librairie du Lys</h1>
                 <p>Découvrez notre sélection de livres</p>
             </div>
         {% endblock %}
+        {% block footer %}
+            <footer class="bg-dark text-center text-white">
+                <div class="container p-4">
+                    <div class="row">
+                    <div class="col-md-4">
+                        <h5>A propos</h5>
+                        <p>La Librairie Du Lys est une librairie qui aspire à garder le contact humain au sein des passionné de lecture.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Où nous trouver</h5>
+                        <p>Adresse postale<br>
+                        60, rue du lys<br>
+                        77190 Dammarie-les-lys.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contactez-nous</h5>
+                        <br>
+                        <section class="mb-4">
+                        <a href="mailto:ryansifi@librairiedulys.fr" class="text-white text-decoration-none link">Envoyer nous un e-mail</a>
+                        </section>
+                    </div>
+                    </div>
+                    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                        © 2023 Copyright:
+                        <a class="text-white" href="http://librairiedulys.fr/">librairiedulys.fr</a>
+                        <a class="text-white" href="{{ path('app_mentions_legales') }}">Mentions Légales</a>
+                        <a class="text-white" href="{{ path('app_politiques_confidentialite') }}">Politiques de Confidentialité</a>
+                    </div>
+            </footer>
+            {% endblock %}
     </body>
 </html>

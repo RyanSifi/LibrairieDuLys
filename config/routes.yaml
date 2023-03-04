@@ -21,3 +21,11 @@ target_path:
 admin_page:
   path: /admin
   controller: App\Controller\AdminController::index
+
+app_mentions_legales:
+  path: /mentions-legales
+  controller: App\Controller\MentionsLegalesController::index
+
+app_politiques_confidentialite:
+  path: /politiques-confidentialite
+  controller: App\Controller\PolitiquesConfidentialiteController::index
