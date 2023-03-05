@@ -1,8 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Commande effectuée{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
 
 {% block body %}
+{{ parent() }}
+
     <h1>Commande effectuée</h1>
-    <p>Votre commande a été enregistrée avec succès.</p>
+    <br><br>
+    <h3>Votre commande a été enregistrée avec succès.</h3>
+    <br><br><br><br><br><br>
 {% endblock %}

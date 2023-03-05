@@ -17,37 +17,45 @@
             <label for="firstname">Prénom :</label>
             <input type="text" name="firstname" id="firstname" class="form-control" value="{{ user.firstname }}">
         </div>
+        <br>
         <div class="form-group">
             <label for="lastname">Nom :</label>
             <input type="text" name="lastname" id="lastname" class="form-control" value="{{ user.lastname }}">
         </div>
+        <br>
         <div class="form-group">
             <label for="email">Adresse email :</label>
             <input type="email" name="email" id="email" class="form-control" value="{{ user.email }}">
         </div>
+        <br>
         <div class="form-group">
             <label for="phone">Téléphone :</label>
             <input type="tel" name="phone" id="phone" class="form-control" value="{{ user.phone }}">
         </div>
+        <br>
         <div class="form-group">
             <label for="adresse">Adresse :</label>
             <input type="text" name="adresse" id="adresse" class="form-control" value="{{ user.adresse }}">
         </div>
+        <br>
         <div class="form-group">
             <label for="sexe">Sexe :</label>
             <select name="sexe" id="sexe" class="form-control">
                 <option value="Homme" {% if user.sexe == 'Homme' %}selected{% endif %}>Homme</option>
                 <option value="Femme" {% if user.sexe == 'Femme' %}selected{% endif %}>Femme</option>
-                <option value="Autre" {% if user.sexe == 'Autre' %}selected{% endif %}>Autre</option>
             </select>
         </div>
+        <br>
         <div class="form-group">
             <label for="password">Mot De Pass :</label>
-            <input type="text" name="password" id="password" class="form-control">
+            <input type="password" name="password" id="password" class="form-control">
         </div>
+        <br><br>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
+    <br><br>
     <h2>Mes Commandes</h2>
+    <br>
     {% if commandes is empty %}
         <p>Aucune commande pour l'instant.</p>
     {% else %}

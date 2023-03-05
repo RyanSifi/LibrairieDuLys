@@ -1,19 +1,44 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
-     <h1>Mentions légales</h1>
-    <h2>Éditeur du site web :</h2>
-    <p>Le site librairiedulys.fr est la propriété de Sifi Ryan, qui l'édite.</p>
-    <p>Numéro de téléphone: 0636707184</p> 
-    <p>Adresse Mail: ryan.sifi.77@gmail.com</p>
-    <p>Ce site est éditer dans un cadre d'apprentissage la société librairie du lys est fictive.</p>
-    <br>
-    <h2>Hébergeur du site web :</h2>
-    <p>L'hébergeur du site est IONOS</p>
-    <p>7, place de la Gare - BP 70109</p>
-    <p>57200 Sarreguemines Cedex</p>
-    <h2>Numéro d'immatriculation de l'entreprise (le cas échéant) :</h2>
-    <h2>Numéro de TVA intracommunautaire (le cas échéant) :</h2>
-    <p>La société librairie du lys n'existant pas ses deux dernier élément sont laisser vide</p>
-    <p>Nom et adresse de la société qui a développé le site web (le cas échéant) :</p>
+    {{ parent() }}
+
+<h1>Mentions légales</h1>
+
+<h2>Éditeur du site web :</h2>
+<p>Le site librairiedulys.fr est édité par :</p>
+<ul>
+    <li>Sifi Ryan</li>
+    <li>Numéro de téléphone : 0636707184</li> 
+    <li>Adresse Mail : ryan.sifi.77@gmail.com</li>
+    <li>Ce site est édité dans un cadre d'apprentissage, la société Librairie du Lys est fictive.</li>
+</ul>
+
+<h2>Hébergeur du site web :</h2>
+<ul>
+    <li>L'hébergeur du site est IONOS</li>
+    <li>7, place de la Gare - BP 70109</li>
+    <li>57200 Sarreguemines Cedex</li>
+</ul>
+
+<h2>Numéro d'immatriculation de l'entreprise (le cas échéant) :</h2>
+<p>La société Librairie du Lys n'existant pas, ce numéro est laissé vide.</p>
+
+<h2>Numéro de TVA intracommunautaire (le cas échéant) :</h2>
+<p>La société Librairie du Lys n'existant pas, ce numéro est laissé vide.</p>
+
+<h2>Nom et adresse de la société qui a développé le site web (le cas échéant) :</h2>
+<p>Le site a été développé par :</p>
+<ul>
+    <li>Nom : Librairie du lys</li>
+    <li>Adresse : 60, rue du lys 77190 Dammarie-les-lys.</li>
+    <li>Email : ryansifi@librairiedulys.fr</li>
+</ul>
 {% endblock %}

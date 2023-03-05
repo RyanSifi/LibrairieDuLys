@@ -1,8 +1,8 @@
 /* Définition des couleurs */
 :root {
-    --primary-color: #1d3557; /* Bleu foncé */
-    --secondary-color: #6b705c; /* Vert olive */
-    --accent-color: #8d2d2c; /* Bordeaux */
+    --primary-color: #1d3557; 
+    --secondary-color: #fff; 
+    --accent-color: #231f20; 
 }
 
 .body {
@@ -17,17 +17,12 @@
 
 .latest-books {
     background-color: var(--secondary-color);
-    color: #fff;
+    color: #231f20;
     padding: 50px;
 }
 
 .latest-books h2 {
     color: var(--accent-color);
-}
-
-.book-list {
-    list-style: none;
-    padding: 0;
 }
 
 .book-list li {
@@ -80,3 +75,10 @@
 .search-results .book-author {
     font-size: 14px;
 }
+@font-face {
+    font-family: 'Arial';
+    src: url('/fonts/arial-cufonfonts-webfont') format('truetype');
+  }
+body {
+    font-family: Arial, sans-serif;
+  }

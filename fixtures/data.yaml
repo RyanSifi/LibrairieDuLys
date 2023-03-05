@@ -141,7 +141,7 @@ App\Entity\Book:
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 15.50
-    genre: "Conte et Fables"
+    genre: "Conte et Fable"
     stock: "12"
   books_14:
     title: "Fables d'Ésope"
@@ -159,7 +159,7 @@ App\Entity\Book:
     author: "Hans Christian Andersen"
     description: "Recueil de contes et fables écrits par Hans Christian Andersen, publié pour la première fois en 1835. Les histoires mettent en scène des personnages féeriques et merveilleux."
     ISBN: "9782070643074"
-    cover: "images/andersen_cover.jpg"
+    cover: "images/andersen_cover.png"
     publication: <(new \DateTime())>
     editor: "Le Livre de Poche"
     price: 6.80
@@ -225,7 +225,7 @@ App\Entity\Book:
     author: "Maurice Leblanc"
     description: "Arsène Lupin, gentleman cambrioleur est un recueil de nouvelles policières mettant en scène le célèbre voleur Arsène Lupin, qui se joue des forces de l'ordre."
     ISBN: "9782070643074"
-    cover: "images/lupin_cover.jpg"
+    cover: "images/lupin_cover.png"
     publication: <(new \DateTime())>
     editor: "Le Livre de Poche"
     price: 7.20
@@ -236,7 +236,7 @@ App\Entity\Book:
     author: "Miguel de Cervantes"
     description: "Don Quichotte est un roman qui raconte l'histoire d'un noble espagnol obsédé par les romans de chevalerie qui décide de devenir chevalier errant lui-même, accompagné de son fidèle écuyer Sancho Panza."
     ISBN: "9782070643074"
-    cover: "images/donquichotte_cover.jpg"
+    cover: "images/donquichotte_cover.png"
     publication: <(new \DateTime())>
     editor: "Glénat"
     price: 9.90
@@ -280,7 +280,7 @@ App\Entity\Book:
     author: "Charles Baudelaire"
     description: "Petits Poèmes en prose est un recueil de poèmes en prose écrit par Charles Baudelaire et publié pour la première fois en 1869. Les poèmes traitent de sujets variés tels que l'amour, la beauté, l'art et la mort."
     ISBN: "9782253161741"
-    cover: "images/petit_poeme_cover.jpg"
+    cover: "images/petit_poeme-cover.png"
     publication: <(new \DateTime())>
     editor: "Larousse"
     price: 3.95
@@ -302,7 +302,7 @@ App\Entity\Book:
     author: "Victor Hugo"
     description: "Les Contemplations est un recueil de poèmes écrit par Victor Hugo, publié pour la première fois en 1856. Les poèmes traitent de sujets tels que l'amour, la nature, la mort et la religion."
     ISBN: "9782253082672"
-    cover: "images/contemplation_cover.jpg"
+    cover: "images/contemplation_cover.png"
     publication: <(new \DateTime())>
     editor: "Le Livre de Poche"
     price: 8.90
