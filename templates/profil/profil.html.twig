@@ -12,6 +12,7 @@
 {% block body %}
     {{ parent() }}
     <h1>Mon profil</h1>
+    <h3>Voici votre page utilisateur qui permet de modifier vos donnée</h3>
     <form method="post" action="{{ path('update_user_info') }}">
         <div class="form-group">
             <label for="firstname">Prénom :</label>
@@ -47,7 +48,7 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="password">Mot De Pass :</label>
+            <label for="password">Mot De Passe :</label>
             <input type="password" name="password" id="password" class="form-control">
         </div>
         <br><br>

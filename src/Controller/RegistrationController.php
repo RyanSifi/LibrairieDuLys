@@ -16,11 +16,9 @@ use Symfony\Component\Security\Core\Security;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\CommandeRepository;
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 use App\Repository\ClientRepository;
 use App\Form\ForgotPasswordType;
 use App\Form\ResetPasswordType;
-use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 
 
 class RegistrationController extends AbstractController
@@ -184,8 +182,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_forgot_password');
         }
 
-        // Ajouter ces lignes de code pour créer un tableau vide avec les clés 'plainPassword' et 'confirmPassword'
-        // et créer le formulaire avec ces données et définir les données de l'utilisateur dans le formulaire
+
         $userData = ['plainPassword' => null, 'confirmPassword' => null];
         $form = $this->createForm(ResetPasswordType::class, $userData);
         $form->setData($user);

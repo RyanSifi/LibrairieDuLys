@@ -16,7 +16,7 @@ class AdminController extends AbstractController
     #[Route("/admin", name: "admin_index")]
     public function index(Request $request, CommandeRepository $commandeRepository): Response
     {
-        // Vérifie si l'utilisateur a le rôle ADMIN, si non retourne une erreur 403
+        // Vérifie si l'utilisateur a le rôle ADMIN, si non retourne une erreur
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $commandes = $commandeRepository->findAll();

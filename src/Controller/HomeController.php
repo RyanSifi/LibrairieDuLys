@@ -10,8 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * Controlleur qui s'occupe et gére la page d'accueil ainsi que la page
- * de recherche :)
+ * Controlleur qui s'occupe et gére la page d'accueil ainsi que la 
+ * recherche
  */
 class HomeController extends AbstractController
 {

@@ -15,14 +15,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class Client implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * Cette constante de classe contient les « sexes »
-     * disponible pour un client
-     */
-    const SEXES = [
-        'homme' => 'homme',
-        'femme' => 'femme',
-    ];
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -86,7 +78,6 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * A visual identifier that represents this user.
      *
      * @see UserInterface
      */
@@ -101,7 +92,6 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = "ROLE_USER";
 
         return array_unique($roles);
@@ -134,8 +124,6 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
     }
 
     public function getPhone(): ?string
