@@ -60,7 +60,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Roman de fantasy racontant l'histoire d'un jeune garçon nommé Harry Potter qui apprend qu'il est en fait un sorcier et qu'il a été accepté à l'école de sorcellerie de Poudlard."
     ISBN: "9782070643074"
-    cover: "images/Hp_t1_cover.jpg"
+    cover: "images/Hp_t1_cover.png"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -71,7 +71,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Deuxième tome de la série Harry Potter, dans lequel Harry retourne à Poudlard et doit faire face à de nouveaux dangers."
     ISBN: "9782070643074"
-    cover: "images/Hp_t2_cover.jpg"
+    cover: "images/Hp_t2_cover.png"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -82,7 +82,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Troisième tome de la série Harry Potter, dans lequel Harry découvre l'existence d'un dangereux prisonnier qui s'est échappé d'Azkaban."
     ISBN: "9782070643074"
-    cover: "images/Hp_t3_cover.jpg"
+    cover: "images/Hp_t3_cover.png"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -93,7 +93,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Quatrième tome de la série Harry Potter, dans lequel Harry participe au tournoi des trois sorciers et doit faire face à de nouveaux ennemis."
     ISBN: "9782070643074"
-    cover: "images/Hp_t4_cover.jpg"
+    cover: "images/Hp_t4_cover.png"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -104,7 +104,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Cinquième tome de la série Harry Potter, où Harry doit faire face à l'hostilité du Ministère de la Magie et à la montée en puissance de Voldemort."
     ISBN: "9782070643074"
-    cover: "images/Hp_t5_cover.jpg"
+    cover: "images/Hp_t5_cover.png"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -115,7 +115,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Sixième tome de la série Harry Potter, où Harry doit découvrir les secrets du passé de Voldemort."
     ISBN: "9782070643074"
-    cover: "images/Hp_t6_cover.jpg"
+    cover: "images/Hp_t6_cover.png"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90
@@ -126,7 +126,7 @@ App\Entity\Book:
     author: "J.K. Rowling"
     description: "Septième et dernier tome de la série Harry Potter, où Harry et ses amis doivent affronter Voldemort pour la dernière fois."
     ISBN: "9782070643074"
-    cover: "images/Hp_t7_cover.jpg"
+    cover: "images/Hp_t7_cover.png"
     publication: <(new \DateTime())>
     editor: "Gallimard Jeunesse"
     price: 10.90

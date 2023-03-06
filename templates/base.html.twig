@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZS6VRMVK2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-KZS6VRMVK2');
+        </script>
         <meta charset="UTF-8">
-        <title>La Librairie du Lys</title>
+        <title>{% block title %}Librairie du Lys{% endblock %}</title>
         <meta name="description" content="Découvrez notre sélection de livres à la Librairie du Lys, votre référence pour les meilleurs romans, Contes et bien plus encore.">
         <link rel="icon" type="image/x-icon" href="{{ asset('images/icon_librairie.png') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
