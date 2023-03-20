@@ -11,7 +11,7 @@
         gtag('config', 'G-KZS6VRMVK2');
         </script>
         <meta charset="UTF-8">
-        <title>{% block title %}Librairie du Lys{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <meta name="description" content="Découvrez notre sélection de livres à la Librairie du Lys, votre référence pour les meilleurs romans, Contes et bien plus encore.">
         <link rel="icon" type="image/x-icon" href="{{ asset('images/icon_librairie.png') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -75,7 +75,7 @@
                     {% endif %}
                         {% if is_granted('ROLE_ADMIN') %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('admin_page') }}">ADMIN</a>
+                                <a class="nav-link" href="{{ path('admin_page') }}">Admin</a>
                         {% endif %}
                     </ul>
                 </div>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                         © 2023 Copyright:
-                        <a class="text-white" href="http://librairiedulys.fr/">librairiedulys.fr</a>
+                        <a class="text-white" href="https://librairiedulys.fr/">librairiedulys.fr</a>
                         <a class="text-white" href="{{ path('app_mentions_legales') }}">Mentions Légales</a>
                         <a class="text-white" href="{{ path('app_politiques_confidentialite') }}">Politiques de Confidentialité</a>
                     </div>

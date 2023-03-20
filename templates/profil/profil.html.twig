@@ -11,7 +11,7 @@
 
 {% block body %}
     {{ parent() }}
-    <h1>Mon profil</h1>
+    <h2>Mon profil</h2>
     <h3>Voici votre page utilisateur qui permet de modifier vos donnée</h3>
     <form method="post" action="{{ path('update_user_info') }}">
         <div class="form-group">

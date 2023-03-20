@@ -7,12 +7,12 @@
     {{ parent() }}
 {% endblock %}
 
-{% block title %}Tableau de bord{% endblock %}
+{% block title %}Admin{% endblock %}
 
 {% block body %}
     {{ parent() }}
-    <h1>Tableau de bord</h1>
-    <h2>Toutes les commandes</h2>
+    <h2>Tableau de bord</h2>
+    <h3>Toutes les commandes</h3>
     {% if commandes is empty %}
         <p>Aucune commande pour l'instant.</p>
     {% else %}

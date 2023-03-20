@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Poésie{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
@@ -10,7 +12,7 @@
 {% block body %}
     {{ parent() }}
      <div class="latest-books">
-        <h1>Voici une selection du genre: {{ genre }}</h1>
+        <h2>Voici une selection du genre: {{ genre }}</h2>
         <ul class="book-list">
             {% for book in books %}
                 <li class="d-flex justify-content-end">
